@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>בוחרים בחיים – דף נחיתה</title>
+  <meta name="description" content="כותרת ראשית עם משפט מחץ, הסבר קצר על הבעיה, מקרו־הסבר על התוכנית, סיפורי הצלחה, וטופס השארת פרטים." />
+  <meta name="theme-color" content="#35A8FF" />
+  <style>
+    :root{
+      --brand:#35A8FF;
+      --brand-2:#FF8A00;
+      --bg:#ffffff;
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --surface:#f7fbff;
+      --radius:16px;
+      --container:1100px;
+      --space:16px; --space-lg:32px; --space-xl:56px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,"Segoe UI",Arial,"Noto Sans Hebrew",sans-serif;line-height:1.65;color:var(--ink)}
+    .container{max-width:var(--container);margin-inline:auto;padding-inline:var(--space)}
+    .btn{display:inline-block;padding:12px 20px;border-radius:var(--radius);font-weight:600;text-decoration:none;cursor:pointer}
+    .btn--brand{background:var(--brand);color:#fff}
+    .btn--alt{background:var(--brand-2);color:#000}
+
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;z-index:50}
+    header .bar{display:flex;justify-content:space-between;align-items:center;padding:12px}
+    .logo{font-weight:800;display:flex;align-items:center;gap:8px}
+    .logo-dot{width:10px;height:10px;background:var(--brand-2);border-radius:999px}
+
+    section{padding-block:var(--space-xl)}
+    .section-title{font-size:clamp(22px,3.5vw,34px);margin:0 0 10px}
+    .lead{color:var(--muted)}
+
+    .hero{background:linear-gradient(180deg,#eaf5ff,#fff)}
+    .hero h1{font-size:clamp(28px,5vw,46px);margin:0 0 6px}
+    .hero p{margin:0 0 var(--space);color:var(--muted)}
+
+    .explain{background:var(--surface);padding:var(--space-lg);border-radius:var(--radius)}
+    .explain ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+    .explain li{display:flex;gap:10px}
+    .bullet{width:10px;height:10px;background:var(--brand-2);border-radius:999px;margin-top:10px}
+
+    .slider{position:relative;overflow:hidden;border:1px solid #e5e7eb;border-radius:var(--radius)}
+    .slides{display:flex;transition:transform .45s ease}
+    .slide{min-width:100%;padding:var(--space-lg)}
+    .quote{font-size:18px}
+    .person{color:var(--muted);font-size:14px}
+    .nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:1px solid #e5e7eb;padding:10px;border-radius:999px;cursor:pointer}
+    .prev{inset-inline-start:10px}
+    .next{inset-inline-end:10px}
+
+    form{background:#fff;border:1px solid #e5e7eb;padding:var(--space-lg);border-radius:var(--radius)}
+    .grid{display:grid;gap:14px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    label{display:block;font-weight:600;margin-bottom:6px}
+    input,textarea{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:12px}
+    textarea{min-height:120px}
+    .consent{display:flex;gap:10px;align-items:flex-start}
+    .note{color:var(--muted);font-size:14px}
+    @media(max-width:720px){.grid.cols-2{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar container">
+      <div class="logo"><span class="logo-dot"></span> בוחרים בחיים</div>
+      <a href="#contact" class="btn btn--brand">דברו איתנו</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <h1>כותרת חזקה שמדברת על התוצאה</h1>
+      <p>משפט מחץ שמבהיר את הערך: למי זה מתאים ומה מקבלים.</p>
+      <div>
+        <a href="#contact" class="btn btn--brand">השאירו פרטים</a>
+        <a href="#how" class="btn btn--alt">איך זה עובד?</a>
+      </div>
+    </section>
+
+    <section id="problem" class="container">
+      <h2 class="section-title">הבעיה המרכזית</h2>
+      <p class="lead">כאן ננסח בקצרה ובאמפתיה את האתגר שהקהל חווה.</p>
+    </section>
+
+    <section id="how" class="container">
+      <h2 class="section-title">איך התוכנית עובדת</h2>
+      <div class="explain">
+        <ul>
+          <li><span class="bullet"></span><div><strong>שלב 1:</strong> תיאור קצר.</div></li>
+          <li><span class="bullet"></span><div><strong>שלב 2:</strong> תועלת עיקרית.</div></li>
+          <li><span class="bullet"></span><div><strong>שלב 3:</strong> מה קורה אחרי ההצטרפות.</div></li>
+        </ul>
+        <a href="#contact" class="btn btn--brand">מצטרפים עכשיו</a>
+      </div>
+    </section>
+
+    <section id="success" class="container">
+      <h2 class="section-title">סיפורי הצלחה</h2>
+      <div class="slider">
+        <div class="slides" id="slides">
+          <div class="slide"><p class="quote">“משפט השראה קצר.”</p><p class="person">— שם פרטי</p></div>
+          <div class="slide"><p class="quote">“עוד ציטוט אמיתי.”</p><p class="person">— שם פרטי</p></div>
+          <div class="slide"><p class="quote">“תוצאה מדידה.”</p><p class="person">— שם פרטי</p></div>
+        </div>
+        <button class="nav-btn prev" id="prev">‹</button>
+        <button class="nav-btn next" id="next">›</button>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h2 class="section-title">השאירו פרטים ונחזור אליכם</h2>
+      <form id="lead-form">
+        <div class="grid cols-2">
+          <div><label for="name">שם מלא</label><input id="name" name="name" required></div>
+          <div><label for="phone">טלפון</label><input id="phone" name="phone" type="tel" required></div>
+          <div><label for="email">אימייל</label><input id="email" name="email" type="email"></div>
+          <div><label for="subject">נושא</label><input id="subject" name="subject"></div>
+          <div style="grid-column:1/-1"><label for="message">הודעה</label><textarea id="message" name="message"></textarea></div>
+        </div>
+        <div class="consent"><input id="consent" type="checkbox" required><label for="consent">אני מאשר/ת קבלת עדכונים</label></div>
+        <button class="btn btn--brand" type="submit">שליחה</button>
+        <p id="form-status" class="note"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container">
+    <small>© כל הזכויות שמורות · בוחרים בחיים</small>
+  </footer>
+
+  <script>
+    const slides=document.getElementById('slides');
+    const prev=document.getElementById('prev');
+    const next=document.getElementById('next');
+    let i=0,total=slides.children.length;
+    function update(){slides.style.transform=`translateX(${-i*100}%)`;}
+    prev.onclick=()=>{i=(i-1+total)%total;update();}
+    next.onclick=()=>{i=(i+1)%total;update();}
+    setInterval(()=>{next.click()},6000);
+
+    const form=document.getElementById('lead-form');
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      document.getElementById('form-status').textContent='קיבלנו את הפרטים שלך!';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
