@@ -46,7 +46,7 @@
   <p class="hero__subtitle">התוכנית שבאמת תוציא אותך מהסיוט אחת ולתמיד</p>
 
   <div class="hero__cta">
-    <a class="btn btn--light" href="#how">איך זה עובד?</a>
+    <!-- Keep only the primary CTA to avoid unused anchor targets -->
     <a class="btn btn--brand" href="#contact">השאירו פרטים</a>
   </div>
 
@@ -68,21 +68,64 @@
   </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="section section--soft about" aria-label="על התוכנית">
+  <div class="container container--wide">
+    <h2 class="section__title">על התוכנית</h2>
+    <p class="section__text">אנחנו צוות מקצועי עם ניסיון מעשי בליווי מתמודדים עם טראומה ו־PTSD — בשיטה ממוקדת, אנושית ומבוססת תוצאות.</p>
+    <p class="section__text">התהליך שלנו בהיר, בטוח ומותאם אישית — צעד אחרי צעד, עד שמרגישים שוב בשליטה ובתקווה.</p>
+
+    <div class="features" role="list">
+      <article class="feature-card feature-card--1" role="listitem">
+        <h3 class="feature__title">ליווי אישי צמוד</h3>
+        <p class="feature__text">ממפה דרך מדויקת לכל אדם, עם קשר אנושי שמחזיק אתכם לאורך כל התהליך.</p>
+      </article>
+      <article class="feature-card feature-card--2" role="listitem">
+        <h3 class="feature__title">שיטה מעשית</h3>
+        <p class="feature__text">כלים יומיומיים שמחזירים שליטה ושקט — לא רק תיאוריה.</p>
+      </article>
+      <article class="feature-card feature-card--3" role="listitem">
+        <h3 class="feature__title">תוצאות מדידות</h3>
+        <p class="feature__text">עוקבים אחרי התקדמות אמיתית עם יעדים ברורים ומדידים.</p>
+      </article>
+      <article class="feature-card feature-card--4" role="listitem">
+        <h3 class="feature__title">קהילה ותמיכה</h3>
+        <p class="feature__text">לא הולכים לבד — תמיכה בטוחה ומכילה כשצריך אותה באמת.</p>
+      </article>
+    </div>
+
+    <div class="about__cta">
+      <a class="btn btn--brand btn--xl" href="#contact">אני בוחר בחיים!</a>
+    </div>
+  </div>
+</section>
+
 <section id="success" class="section section--soft">
   <div class="container container--wide">
     <h2 class="section__title">סיפורי הצלחה</h2>
-    <p class="section__text">אנשים אמיתיים שעברו את הדרך הזו משתפים בחוויה האישית שלהם.</p>
+    <p class="section__text">סיפורים של אנשים אמיתיים שעברו איתנו את הדרך והתחילו חיים חדשים.</p>
 
     <!-- Swiper -->
     <div class="swiper success-swiper">
       <div class="swiper-wrapper">
+
         <!-- Slide 1 -->
         <div class="swiper-slide">
           <article class="story-card">
-            <h3 class="story__title">דניאל א.</h3>
-            <p class="story__subtitle">מ״פ לוחמה בשריון</p>
+            <h3 class="story__title">דניאל הליבני</h3>
+            <p class="story__subtitle">שכל את אחיו</p>
             <div class="story__text">
-              <p>…טקסט ארוך…</p>
+              <p>
+                המלחמה תפסה אותי כמ''פ קבע של פלוגת הכשרה בחיל השריון. 
+                ביום השלישי למלחמה העירו אותי באמצע הלילה והודיעו לי שאחי הגדול, 
+                סרן יובל הליבני נהרג בקרב בצומת שער הנגב לאחר שהפלוגה שלו נקלעה למארב של מחבלים שהתבצרו במקום.
+                 באותו רגע הרגשתי שנהרסו לי החיים ואני לא יודע איך להמשיך משם.
+                 אחרי שבוע של שבעה והתאבלות על אחי חזרתי לצבא לחצי שנה של סבל גדול. 
+                לא הצלחתי לחזור להיות המפקד שהייתי והאדם המלא השמחה שהייתי והרגשתי שנהרסו לי החיים. אחרי השחרור שלי הציעו לי להגיע ולקבל סשן של דיאנטיקה, לא הייתה לי ממשות על מה זה כל-כך אבל הסכמתי. כבר אחרי הסשן הראשון הרגשתי איך כל דרך ההסתכלות שלי על האבל והאובדן משתנה. לאחר 40 שעות של קבלת סשנים של דיאנטיקה הרגשתי שאני יכול לנשום שוב. הרגשתי שמגיע לי להיות שמח,
+                 להיות מאושר ולבנות את החיים שעליהם חלמתי לפני המוות של אחי. שחררתי מעליי את האשמה שאני חי והוא מת, והבנתי שהוא היה רוצה בשבילי שאהיה שמח ואחיה את החיים באופן הכי שלם שיש.
+                 כיום, שנה וחצי אחר כך, אני יותר שמח משהייתי אי פעם על אף המחסור התמידי של אחי האהוב.
+                 אין ספק שלא הייתי במצב שאני נמצא בו היום ללא הטכנולוגיה המדהימה של דיאנטיקה!
+              </p>
             </div>
           </article>
         </div>
@@ -101,10 +144,22 @@
         <!-- Slide 3 -->
         <div class="swiper-slide">
           <article class="story-card">
-            <h3 class="story__title">יוסי ל.</h3>
-            <p class="story__subtitle">קצין מילואים</p>
+            <h3 class="story__title">ס.ד</h3>
+            <p class="story__subtitle">נמלטה משדרות תחת אש</p>
             <div class="story__text">
-              <p>…טקסט ארוך…</p>
+              <p>
+                “ב-7 באוקטובר 2023 נאלצתי לברוח משדרות.
+הייתי תקועה שעות בממד עם הכלבה שלי, שמעתי את הירי בחוץ ולא ידעתי אם זה הסוף שלי או לא.
+פתאום שמעתי דפיקות בדלת ומישהו צועק את שמי, הייתי מבולבלת לרגע אבל יצאתי מהממד ופתחתי את הדלת, ידיד שלי עמד שם ואמר – “בואי, אנחנו בורחים”. היה לו אקדח ומשהו בי אמר לי שזה הדבר הנכון לעשות. היינו תחת אש וזה היה מפחיד אבל חבר שלי קיבל כמה החלטות נכונות והגענו בשלום למרכז הארץ.
+ברחתי משדרות אבל… לא ברחתי מהטראומה, או כמו שאמרתי – עזבתי את שדרות אבל שדרות לא עזבה אותי. חייתי את ה-7 באוקטובר בכל רגע. חוויתי לחץ וחרדה והייתי ערנית ודרוכה כל הזמן. “שמעתי” ירי לא קיים ו“ראיתי” טרוריסטים רודפים אחריי. הגוף שלי רעד ולא יכולתי לראות שום עתיד. הייתי בייאוש.
+היה בלתי אפשרי לחיות עם כל הלחץ הזה.
+התקשרתי לשלי שעזרה לי בעבר עם בעיה גופנית שהייתה לי והיא הגיעה למקום בו שהיתי כדי לעשות לי טיפול דיאנטיקה. לא ידעתי למה אני נכנסת אבל סמכתי על שלי.
+שלי ישבה איתי 7 שעות!!! היא הסבירה לי מה אנחנו הולכים לעשות ואז נכנסה לפעולה.
+בסוף הפגישה יכולתי לחייך, יכולתי להירגע, המיינד שלי כבר לא זרק עליי תמונות מזעזעות והמטען שסחבתי נעלם!
+דיאנטיקה זה כלי מדהים, צריך להשתמש בו באופן נרחב על כל קורבנות הטרור ועל כל מי שחווה טראומה בחיים.
+קיבלתי חיים חדשים, מצאתי מקום נחמד לחיות בו, מצאתי מטרה ואני בדרך לעתיד טוב שיצרתי לי.
+תודה שלי!״
+              </p>
             </div>
           </article>
         </div>
@@ -116,11 +171,57 @@
       <div class="swiper-pagination"></div>
     </div>
   </div>
+
 </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact" aria-label="צרו קשר">
+      <div class="container container--wide">
+        <h2 class="section__title">יאללה, שנקבע לדבר?</h2>
+        <p class="section__text">השאירו פרטים — ונחזור אליכם בהקדם.</p>
+
+        <form id="contactForm" class="contact__form" novalidate>
+          <div class="form__row">
+            <div class="field">
+              <label for="name">שם מלא</label>
+              <input id="name" name="name" type="text" required placeholder="ישראל ישראלי" />
+            </div>
+            <div class="field">
+              <label for="phone">טלפון</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" pattern="[0-9+\-\s]{8,}" required placeholder="050-1234567" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="field field--full">
+              <label for="email">אימייל</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--brand">תחזרו אליי!</button>
+            <span id="contactFormStatus" class="form__status" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer__row">
+      <div class="footer__brand">
+        <img src="assets/media/Logo.svg" width="40" height="40" alt="" />
+        <span>בוחרים בחיים</span>
+      </div>
+
+      <ul class="footer__links" role="list">
+        <li><a href="#contact">צור קשר</a></li>
+        <li><a href="#">מדיניות פרטיות</a></li>
+        <li><a href="#">תנאי שימוש</a></li>
+      </ul>
+    </div>
+    <div class="container footer__copy">
       <small>© כל הזכויות שמורות · בוחרים בחיים</small>
     </div>
   </footer>

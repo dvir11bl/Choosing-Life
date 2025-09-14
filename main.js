@@ -1,4 +1,4 @@
-// Smooth scroll for the little down-arrow
+// Smooth scroll for the little down-arrow (hero scroll button)
 document.querySelectorAll('[data-scroll-target]').forEach(btn => {
   btn.addEventListener('click', () => {
     const sel = btn.getAttribute('data-scroll-target');
@@ -7,35 +7,39 @@ document.querySelectorAll('[data-scroll-target]').forEach(btn => {
   });
 });
 
-// Hero video: respect prefers-reduced-motion and autoplay policies
-(function(){
-  const video = document.getElementById('heroVideo');
-  if (!video) return;
+// Removed unused hero video autoplay handler (no #heroVideo in markup)
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) {
-    // Don’t autoplay for users who prefer less motion
-    video.pause();
-    return;
-  }
-
-  // Try to play; some browsers block until user interacts if not muted, so we ensure muted
-  video.muted = true;
-  const playAttempt = video.play();
-  if (playAttempt && typeof playAttempt.catch === 'function') {
-    playAttempt.catch(() => {
-      // If autoplay fails, we just leave the poster image
-    });
-  }
-})();
-
-// Smooth scroll for in-page anchors (respects scroll-margin-top in CSS)
+// Smooth scroll for in-page anchors
+// Slower custom scroll for links pointing to #contact
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href');
     const el = document.querySelector(id);
-    if (el) {
-      e.preventDefault();
+    if (!el) return;
+
+    e.preventDefault();
+
+    if (id === '#contact') {
+      // Custom slower scroll (~1.6s) with easeInOut
+      const startY = window.pageYOffset;
+      const rect = el.getBoundingClientRect();
+      const targetY = rect.top + window.pageYOffset; // adjust if header offset is desired
+      const duration = 1600;
+      const startTime = performance.now();
+
+      const easeInOutCubic = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
+
+      function step(now){
+        const elapsed = now - startTime;
+        const progress = Math.min(1, elapsed / duration);
+        const eased = easeInOutCubic(progress);
+        const y = startY + (targetY - startY) * eased;
+        window.scrollTo(0, y);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    } else {
+      // Default smooth
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
@@ -80,12 +84,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   window.addEventListener('resize', onScroll);
 })();
 
-// Destroy any previous swiper on hot reload
-if (window.__successSwiper && typeof window.__successSwiper.destroy === 'function') {
-  window.__successSwiper.destroy(true, true);
-}
-
-window.__successSwiper = new Swiper('.success-swiper', {
+// Success stories carousel (Swiper)
+new Swiper('.success-swiper', {
   slidesPerView: 1,
   spaceBetween: 0,
   centeredSlides: false,
@@ -116,3 +116,76 @@ window.__successSwiper = new Swiper('.success-swiper', {
   rtlTranslate: true,
 });
 
+// Contact form: simple client-side handler
+(function(){
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  const statusEl = document.getElementById('contactFormStatus');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      // Let the browser show native validation messages
+      form.reportValidity();
+      return;
+    }
+
+    // In a real setup, send to your backend here (fetch/POST)
+    // For now, show a friendly confirmation and reset
+    if (statusEl) {
+      statusEl.textContent = 'תודה! קיבלנו את הפרטים ונחזור אליכם ממש בקרוב.';
+    }
+    form.reset();
+  });
+})();
+
+// Interactive feature cards: "side zoom" based on entry corner only
+(function(){
+  const cards = document.querySelectorAll('.feature-card');
+  if (!cards.length) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  cards.forEach(card => {
+    function originFromEvent(e){
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      // Distances squared to each corner
+      const dTL = x*x + y*y;
+      const dTR = (r.width - x)*(r.width - x) + y*y;
+      const dBL = x*x + (r.height - y)*(r.height - y);
+      const dBR = (r.width - x)*(r.width - x) + (r.height - y)*(r.height - y);
+      const min = Math.min(dTL, dTR, dBL, dBR);
+      if (min === dTL) return ['0%','0%'];
+      if (min === dTR) return ['100%','0%'];
+      if (min === dBL) return ['0%','100%'];
+      return ['100%','100%'];
+    }
+
+    let entered = false;
+    let ox = '50%';
+    let oy = '50%';
+
+    card.addEventListener('mouseenter', (e) => {
+      entered = true;
+      [ox, oy] = originFromEvent(e);
+      card.style.transformOrigin = `${ox} ${oy}`;
+      card.style.transform = 'scale(1.05)';
+    });
+
+    // Mouse move inside does not change origin; keep steady zoom
+    card.addEventListener('mousemove', () => {
+      if (!entered) return;
+      // Maintain set transform (CSS transition keeps it smooth)
+      card.style.transformOrigin = `${ox} ${oy}`;
+      card.style.transform = 'scale(1.05)';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      entered = false;
+      card.style.transformOrigin = '';
+      card.style.transform = '';
+    });
+  });
+})();
