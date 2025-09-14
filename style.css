@@ -220,3 +220,38 @@ body{
   40% { transform: translateY(6px); }
   60% { transform: translateY(3px); }
 }
+
+/* --- Success Swiper reset (namespaced) --- */
+.success-swiper { 
+  direction: rtl;          /* slider math in LTR to avoid RTL bugs */
+  overflow: hidden;
+  margin-top: 120px;
+}
+.success-swiper .swiper-wrapper { 
+  transition-timing-function: cubic-bezier(.22,.61,.36,1);
+}
+.success-swiper .swiper-slide {
+  width: 100% !important;  /* exactly one slide visible */
+  display: flex;
+  justify-content: center;
+}
+
+/* Card content stays RTL */
+.story-card{
+  direction: rtl; text-align: right;
+  width: min(900px, 92vw);
+  background:#fff;
+  border-radius:16px;
+  border-top:4px solid var(--brand);
+  box-shadow:0 10px 24px rgba(0,0,0,.06);
+  padding:24px 24px 28px;
+}
+.story__title{ color:var(--brand); margin:0 0 4px; font-weight:700; font-size:1.3rem; }
+.story__subtitle{ color:var(--muted); margin:0 0 16px; font-size:1rem; }
+.story__text{ color:var(--ink); line-height:1.8; font-size:1.05rem; }
+
+/* Controls & dots with blue accent */
+.success-swiper .swiper-button-next,
+.success-swiper .swiper-button-prev { color: var(--brand); }
+.success-swiper .swiper-pagination-bullet { background:#cfd6df; opacity:1; }
+.success-swiper .swiper-pagination-bullet-active { background: var(--brand); }

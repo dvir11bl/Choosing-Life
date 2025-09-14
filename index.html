@@ -8,7 +8,8 @@
   <link rel="preload" as="image" href="assets/media/hero.png" imagesrcset="assets/media/hero.png 1x" />
   <link rel="stylesheet" href="./style.css" />
   <script src="./main.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;600;700&display=swap&subset=hebrew" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
 <body>
@@ -66,6 +67,56 @@
   </p>
   </div>
 </section>
+
+<section id="success" class="section section--soft">
+  <div class="container container--wide">
+    <h2 class="section__title">סיפורי הצלחה</h2>
+    <p class="section__text">אנשים אמיתיים שעברו את הדרך הזו משתפים בחוויה האישית שלהם.</p>
+
+    <!-- Swiper -->
+    <div class="swiper success-swiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <article class="story-card">
+            <h3 class="story__title">דניאל א.</h3>
+            <p class="story__subtitle">מ״פ לוחמה בשריון</p>
+            <div class="story__text">
+              <p>…טקסט ארוך…</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <article class="story-card">
+            <h3 class="story__title">שרה ק.</h3>
+            <p class="story__subtitle">אשת צוות רפואי</p>
+            <div class="story__text">
+              <p>…טקסט ארוך…</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <article class="story-card">
+            <h3 class="story__title">יוסי ל.</h3>
+            <p class="story__subtitle">קצין מילואים</p>
+            <div class="story__text">
+              <p>…טקסט ארוך…</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
   </main>
 
   <footer class="site-footer">
@@ -73,5 +124,8 @@
       <small>© כל הזכויות שמורות · בוחרים בחיים</small>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </body>
 </html>

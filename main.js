@@ -80,3 +80,39 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   window.addEventListener('resize', onScroll);
 })();
 
+// Destroy any previous swiper on hot reload
+if (window.__successSwiper && typeof window.__successSwiper.destroy === 'function') {
+  window.__successSwiper.destroy(true, true);
+}
+
+window.__successSwiper = new Swiper('.success-swiper', {
+  slidesPerView: 1,
+  spaceBetween: 0,
+  centeredSlides: false,
+
+  // 🔁 circular navigation
+  loop: true,
+
+  speed: 900,
+
+  // ⏱ autoplay, pause on hover, move in RTL direction
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+    reverseDirection: true,  // 🔄 moves “right to left”
+  },
+
+  navigation: {
+    nextEl: '.success-swiper .swiper-button-next',
+    prevEl: '.success-swiper .swiper-button-prev',
+  },
+  pagination: {
+    el: '.success-swiper .swiper-pagination',
+    clickable: true,
+  },
+
+  // 📐 respect container RTL (usually auto-detected, but we can be explicit)
+  rtlTranslate: true,
+});
+
