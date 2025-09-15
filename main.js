@@ -45,6 +45,22 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// Mobile nav toggle (hamburger)
+(function(){
+  const toggle = document.querySelector('.nav__toggle');
+  const menu   = document.getElementById('siteMenu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  // Close menu after clicking a link
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+})();
+
 // Stronger parallax background position for the hero image
 (function () {
   const hero = document.getElementById('hero');
@@ -52,7 +68,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   if (!hero || !bg) return;
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
+  const smallScreen = window.matchMedia('(max-width: 640px)').matches;
+  if (prefersReduced || smallScreen) return;
 
   const START = 15;   // starting Y%
   const END   = 82;   // bigger range -> more visible motion (try 78–88)
@@ -141,6 +158,8 @@ new Swiper('.success-swiper', {
 
 // Interactive feature cards: "side zoom" based on entry corner only
 (function(){
+  // Skip on devices that don't support hover (touch) to avoid odd effects
+  if (!window.matchMedia('(hover: hover)').matches) return;
   const cards = document.querySelectorAll('.feature-card');
   if (!cards.length) return;
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

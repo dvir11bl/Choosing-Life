@@ -20,7 +20,8 @@
       <span>בוחרים בחיים</span>
     </div>
 
-    <ul class="menu" role="list">
+    <button class="nav__toggle" aria-expanded="false" aria-controls="siteMenu" aria-label="פתח תפריט">☰</button>
+    <ul id="siteMenu" class="menu" role="list">
       <li><a class="nav__link" href="#problem">המצב כיום</a></li>
       <li><a class="nav__link" href="#about">על התוכנית</a></li>
       <li><a class="nav__link" href="#success">סיפורי הצלחה</a></li>
@@ -58,12 +59,11 @@
 
     <section id="problem" class="section section--after-hero">
     <div class="container container--wide">
-  <h2 class="section__title">המצב כיום</h2>
+  <h2 class="section__title">המציאות של היום...</h2>
   <p class="section__text">
-    טקסט דוגמה - 
-    בישראל שלאחר המלחמה, מציאות החיים היום־יומית מביאה איתה עלייה ניכרת במקרי פוסט־טראומה
-    ובקשיים נפשיים שונים. רבים מוצאים עצמם מתמודדים עם אתגרים רגשיים עמוקים —
-    מה שממחיש עד כמה הצורך בתמיכה אמיתית הפך להיות דחוף ומיידי.
+    עשרות אלפי הלומי קרב נוספו לישראל בשנתיים האחרונות.
+זה אומר מאות אלפי ילדים, הורים, נשים, אחים וחברים המושפעים מהמצב הבלתי נסבל הזה.
+אנחנו מחויבים לפתרון ולא רק לתמיכה או התמודדות עם הפוסט טראומה.
   </p>
   </div>
 </section>
@@ -77,20 +77,20 @@
 
     <div class="features" role="list">
       <article class="feature-card feature-card--1" role="listitem">
-        <h3 class="feature__title">ליווי אישי צמוד</h3>
-        <p class="feature__text">ממפה דרך מדויקת לכל אדם, עם קשר אנושי שמחזיק אתכם לאורך כל התהליך.</p>
+        <h3 class="feature__title">תוכנית אישית</h3>
+        <p class="feature__text">ניפגש לראיון אישי ונבנה תכנית מותאמת עבורך</p>
       </article>
       <article class="feature-card feature-card--2" role="listitem">
-        <h3 class="feature__title">שיטה מעשית</h3>
-        <p class="feature__text">כלים יומיומיים שמחזירים שליטה ושקט — לא רק תיאוריה.</p>
+        <h3 class="feature__title">דיאנטיקה</h3>
+        <p class="feature__text">טכניקה ייחודית למחיקת ההשפעה השלילית של מאורעות טראומטיים.</p>
       </article>
       <article class="feature-card feature-card--3" role="listitem">
-        <h3 class="feature__title">תוצאות מדידות</h3>
-        <p class="feature__text">עוקבים אחרי התקדמות אמיתית עם יעדים ברורים ומדידים.</p>
+        <h3 class="feature__title">כלים לחיים מאושרים</h3>
+        <p class="feature__text">נלמד שיטות וכלים מעשיים להתפתחות אישית ושגשוג.</p>
       </article>
       <article class="feature-card feature-card--4" role="listitem">
-        <h3 class="feature__title">קהילה ותמיכה</h3>
-        <p class="feature__text">לא הולכים לבד — תמיכה בטוחה ומכילה כשצריך אותה באמת.</p>
+        <h3 class="feature__title">פעולות מהנות, לפי בחירה</h3>
+        <p class="feature__text">אפשרות להשתלב בפעילויות חווייתיות שמוסיפות עניין, שמחה וקשרים חדשים.</p>
       </article>
     </div>
 
@@ -177,7 +177,7 @@
     <!-- CONTACT -->
     <section id="contact" class="section contact" aria-label="צרו קשר">
       <div class="container container--wide">
-        <h2 class="section__title">יאללה, שנקבע לדבר?</h2>
+        <h2 class="section__title">בוא נדבר</h2>
         <p class="section__text">השאירו פרטים — ונחזור אליכם בהקדם.</p>
 
         <form id="contactForm" class="contact__form" novalidate>
@@ -199,7 +199,7 @@
             </div>
           </div>
           <div class="form__actions">
-            <button type="submit" class="btn btn--brand">תחזרו אליי!</button>
+            <button type="submit" class="btn btn--brand">חזרו אליי!</button>
             <span id="contactFormStatus" class="form__status" aria-live="polite"></span>
           </div>
         </form>
