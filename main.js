@@ -19,29 +19,26 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
     e.preventDefault();
 
-    if (id === '#contact') {
-      // Custom slower scroll (~1.6s) with easeInOut
-      const startY = window.pageYOffset;
-      const rect = el.getBoundingClientRect();
-      const targetY = rect.top + window.pageYOffset; // adjust if header offset is desired
-      const duration = 1600;
-      const startTime = performance.now();
+    // Smooth scroll with sticky-header offset for all anchors
+    const header = document.querySelector('.site-header');
+    const headerOffset = header ? header.offsetHeight : 0;
+    const startY = window.pageYOffset;
+    const rect = el.getBoundingClientRect();
+    const targetY = rect.top + window.pageYOffset - headerOffset; // account for sticky header
+    const duration = (id === '#contact') ? 1600 : 700; // slower for the primary CTA
+    const startTime = performance.now();
 
-      const easeInOutCubic = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
+    const easeInOutCubic = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
 
-      function step(now){
-        const elapsed = now - startTime;
-        const progress = Math.min(1, elapsed / duration);
-        const eased = easeInOutCubic(progress);
-        const y = startY + (targetY - startY) * eased;
-        window.scrollTo(0, y);
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    } else {
-      // Default smooth
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    function step(now){
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      const eased = easeInOutCubic(progress);
+      const y = startY + (targetY - startY) * eased;
+      window.scrollTo(0, y);
+      if (progress < 1) requestAnimationFrame(step);
     }
+    requestAnimationFrame(step);
   });
 });
 
@@ -150,8 +147,25 @@ new Swiper('.success-swiper', {
     // In a real setup, send to your backend here (fetch/POST)
     // For now, show a friendly confirmation and reset
     if (statusEl) {
-      statusEl.textContent = 'תודה! קיבלנו את הפרטים ונחזור אליכם ממש בקרוב.';
+      statusEl.textContent = 'תודה! קיבלנו את הבקשה — אנחנו על זה!';
     }
+    // Animate to a clear “received” state: collapse fields, soften button, show status
+    const actions = form.querySelector('.form__actions');
+    const submitBtn = actions?.querySelector('button');
+    if (submitBtn) submitBtn.classList.add('is-hidden');
+    if (actions) actions.classList.add('submitted');
+    // Show overlay success (centered)
+    const overlay = form.querySelector('.form__success');
+    const overlayText = form.querySelector('.form__success-text');
+    if (overlay) {
+      overlay.removeAttribute('aria-hidden');
+      // Move focus for accessibility
+      overlay.focus?.();
+    }
+    if (overlayText) {
+      overlayText.textContent = 'תודה! קיבלנו את הפנייה — אנחנו על זה.';
+    }
+    form.classList.add('submitted');
     form.reset();
   });
 })();
