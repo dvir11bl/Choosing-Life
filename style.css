@@ -157,7 +157,7 @@ body{
 }
 
 /* Compact gap specifically between Problem and About */
-#problem + #about { padding-top: calc(var(--section-gap) * 0.45); }
+#problem + #about { padding-top: calc(var(--section-gap) * 0.2); }
 .section__title {
     font-family: "Playpen Sans Hebrew", cursive, "Noto Sans Hebrew", sans-serif;
   font-optical-sizing: auto;
