@@ -24,7 +24,10 @@
 }
 
 *{box-sizing:border-box}
-html,body{margin:0;padding:0} 
+html,body{margin:0;padding:0; overflow-x: hidden; width:100%;}
+
+/* Prevent media from overflowing on small screens */
+img, svg, video{ max-width: 100%; height: auto; display: block; }
 
 body{
   font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans Hebrew", Arial, sans-serif;
@@ -152,6 +155,9 @@ body{
   height: 1px;
   background: linear-gradient(to left, transparent, rgba(0,0,0,.08), transparent);
 }
+
+/* Compact gap specifically between Problem and About */
+#problem + #about { padding-top: calc(var(--section-gap) * 0.45); }
 .section__title {
     font-family: "Playpen Sans Hebrew", cursive, "Noto Sans Hebrew", sans-serif;
   font-optical-sizing: auto;
