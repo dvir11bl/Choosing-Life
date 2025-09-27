@@ -130,43 +130,52 @@ new Swiper('.success-swiper', {
   rtlTranslate: true,
 });
 
-// Contact form: simple client-side handler
+// Contact form: POST JSON to /api/contact
 (function(){
   const form = document.getElementById('contactForm');
   if (!form) return;
   const statusEl = document.getElementById('contactFormStatus');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) {
-      // Let the browser show native validation messages
       form.reportValidity();
       return;
     }
 
-    // In a real setup, send to your backend here (fetch/POST)
-    // For now, show a friendly confirmation and reset
-    if (statusEl) {
-      statusEl.textContent = 'תודה! קיבלנו את הבקשה — אנחנו על זה!';
-    }
-    // Animate to a clear “received” state: collapse fields, soften button, show status
     const actions = form.querySelector('.form__actions');
     const submitBtn = actions?.querySelector('button');
-    if (submitBtn) submitBtn.classList.add('is-hidden');
-    if (actions) actions.classList.add('submitted');
-    // Show overlay success (centered)
-    const overlay = form.querySelector('.form__success');
-    const overlayText = form.querySelector('.form__success-text');
-    if (overlay) {
-      overlay.removeAttribute('aria-hidden');
-      // Move focus for accessibility
-      overlay.focus?.();
+    const originalText = submitBtn?.textContent;
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'שולחים…'; }
+    if (statusEl) { statusEl.textContent = ''; statusEl.style.color = ''; }
+
+    // Collect fields
+    const payload = {
+      name: (form.querySelector('#name')?.value || '').trim(),
+      phone: (form.querySelector('#phone')?.value || '').trim(),
+      email: (form.querySelector('#email')?.value || '').trim(),
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error('Request failed');
+      if (statusEl) {
+        statusEl.textContent = 'תודה! קיבלנו את הבקשה — אנחנו על זה!';
+      }
+      form.reset();
+    } catch (err) {
+      if (statusEl) {
+        statusEl.textContent = 'אופס — לא הצלחנו לשלוח. נסו שוב.';
+        statusEl.style.color = '#DC2626';
+      }
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; if (originalText) submitBtn.textContent = originalText; }
     }
-    if (overlayText) {
-      overlayText.textContent = 'תודה! קיבלנו את הפנייה — אנחנו על זה.';
-    }
-    form.classList.add('submitted');
-    form.reset();
   });
 })();
 
