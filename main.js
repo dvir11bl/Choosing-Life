@@ -167,6 +167,20 @@ new Swiper('.success-swiper', {
       if (statusEl) {
         statusEl.textContent = 'תודה! קיבלנו את הבקשה — אנחנו על זה!';
       }
+      // Reveal success overlay and fade out form content while keeping size
+      const overlay = form.querySelector('.form__success');
+      const overlayText = form.querySelector('.form__success-text');
+      const actions = form.querySelector('.form__actions');
+      if (overlay) {
+        overlay.removeAttribute('aria-hidden');
+        overlay.focus?.();
+      }
+      if (overlayText) {
+        overlayText.textContent = 'תודה! קיבלנו את הפנייה — אנחנו על זה.';
+      }
+      if (submitBtn) submitBtn.classList.add('is-hidden');
+      if (actions) actions.classList.add('submitted');
+      form.classList.add('submitted');
       form.reset();
     } catch (err) {
       if (statusEl) {
