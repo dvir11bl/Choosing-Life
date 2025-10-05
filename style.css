@@ -142,8 +142,8 @@ body{
 .footer__links{ list-style:none; display:flex; gap: 18px; margin:0; padding:0; }
 .site-footer a{ color:#fff; text-decoration:none; opacity:.92; }
 .site-footer a:hover, .site-footer a:focus{ text-decoration: underline; opacity:1; }
-.footer__copy{ margin-top: 14px; text-align:center; opacity:.9; }
-.site-footer{ padding-bottom: calc(clamp(32px, 6vw, 56px) + env(safe-area-inset-bottom)); }
+.footer__copy{ margin-top: clamp(28px, 5vw, 40px); text-align:center; opacity:.9; font-size: .85rem; }
+.site-footer{ padding-bottom: calc(clamp(18px, 4vw, 32px) + env(safe-area-inset-bottom)); }
 
 /* ===== Sections ===== */
 #problem { scroll-margin-top: var(--header); }
@@ -526,3 +526,4 @@ body{
 @media (prefers-reduced-motion: reduce){
   .contact .btn--brand{ animation: none; }
 }
+
