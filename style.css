@@ -335,8 +335,22 @@ body{
   box-shadow: var(--shadow-card);
   padding:24px 24px 28px;
 }
-.story__title{ color:var(--brand); margin:0 0 4px; font-weight:700; font-size:1.3rem; }
-.story__subtitle{ color:var(--muted); margin:0 0 16px; font-size:1rem; }
+.story__header{
+  display:flex; align-items:flex-start; gap:32px;
+  position: relative;
+  padding: 20px;              /* roomy header area */
+  margin-bottom: 38px;        /* space before story text */
+  background: #F7F7F7;        /* neutral very light gray */
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+}
+.story__avatar{ width:180px; height:180px; border-radius:50%; object-fit:cover; flex:0 0 180px; border:2px solid #e6eef6; background:#f3f6fa; box-shadow: 0 10px 24px rgba(0,0,0,.12), 0 3px 8px rgba(0,0,0,.08); }
+.story__meta{ display:flex; flex-direction:column; min-width:0; 
+  /* Start the meta (title + subtitle) at 1/5 of the avatar height (180px * 0.20 = 36px) */
+  margin-top: 36px;
+}
+.story__title{ color:var(--brand); margin:0 0 4px; font-weight:700; font-size:2.5rem; text-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.story__subtitle{ color:var(--muted); margin:0 0 16px; font-size:1.2rem; }
 .story__text{ color:var(--ink); line-height:1.8; font-size:1.05rem; }
 
 /* Controls & dots with blue accent */

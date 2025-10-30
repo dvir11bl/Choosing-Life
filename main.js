@@ -130,6 +130,41 @@ new Swiper('.success-swiper', {
   rtlTranslate: true,
 });
 
+// Enhance success stories: add avatar + stacked subtitle under name
+(function(){
+  const cards = document.querySelectorAll('#success .story-card');
+  if (!cards.length) return;
+  cards.forEach(card => {
+    const title = card.querySelector('.story__title');
+    const subtitle = card.querySelector('.story__subtitle');
+    if (!title || !subtitle) return;
+
+    // Create header wrapper
+    const header = document.createElement('div');
+    header.className = 'story__header';
+
+    // Use existing avatar tag if present, otherwise create a default one
+    let img = card.querySelector('.story__avatar');
+    if (!img) {
+      img = document.createElement('img');
+      img.className = 'story__avatar';
+      img.src = 'assets/media/avatar-default.svg';
+      img.alt = `Photo of ${title.textContent?.trim() || 'storyteller'}`;
+    }
+
+    // Meta container and move existing nodes inside
+    const meta = document.createElement('div');
+    meta.className = 'story__meta';
+
+    // Insert header before the current title, then move nodes into meta
+    card.insertBefore(header, title);
+    meta.appendChild(title);
+    meta.appendChild(subtitle);
+    header.appendChild(img);
+    header.appendChild(meta);
+  });
+})();
+
 // Contact form: POST JSON to /api/contact
 (function(){
   const form = document.getElementById('contactForm');
