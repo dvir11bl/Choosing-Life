@@ -365,6 +365,20 @@ body{
   .success-swiper .swiper-button-prev{ display:none; }
 }
 
+/* --- Success section: mobile fit fixes --- */
+/* Ensure anchor scroll doesn’t hide the title under the sticky header */
+#success { scroll-margin-top: calc(var(--header) + 8px); }
+
+@media (max-width: 640px){
+  /* Make the Success header fit comfortably on small phones */
+  #success .section__title{
+    font-size: clamp(26px, 6.8vw, 34px);
+    line-height: 1.2;
+  }
+  /* Reduce spacing before the carousel so the header isn’t visually “floating” */
+  .success-swiper{ margin-top: 28px; }
+}
+
 /* ===== About ===== */
 .about { background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%); }
 .about .section__text { margin-bottom: 8px; }
