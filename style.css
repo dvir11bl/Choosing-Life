@@ -403,13 +403,17 @@ body{
   line-height: 1.2;
 }
 .team__photo-frame{
-  width: clamp(220px, 28vw, 300px);
+  --team-photo-size: clamp(220px, 28vw, 300px);
+  width: var(--team-photo-size);
+  height: var(--team-photo-size);
   aspect-ratio: 1 / 1;
   margin-inline: auto;
   border-radius: 50%;
   padding: 10px;
+  box-sizing: border-box;
   background: linear-gradient(135deg, #35A8FF 0%, #7cc7ff 100%);
   box-shadow: 0 18px 40px rgba(53,168,255,.28), 0 6px 16px rgba(0,0,0,.06);
+  overflow: hidden;
 }
 .team__photo{
   width: 100%;
@@ -602,4 +606,3 @@ body{
 @media (prefers-reduced-motion: reduce){
   .contact .btn--brand{ animation: none; }
 }
-
