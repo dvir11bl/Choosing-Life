@@ -152,7 +152,7 @@ body{
 @media (max-width: 640px){ .section{ padding-block: var(--space-lg); } }
 
 .section--after-hero {
-  padding-top: var(--section-gap-xl);      /* larger gap after hero */
+  padding-top: var(--section-gap-xl);
   padding-bottom: var(--section-gap);
   position: relative;
 }
@@ -176,15 +176,15 @@ body{
   color: var(--ink);
   font-size: clamp(34px, 4.6vw, 64px);  /* bigger than before */
   margin-bottom: 14px; 
-  text-align: right;  /* ensure RTL headings align right */
+  text-align: right;
 }
 
 /* Regular paragraph text */
 .section__text {
   font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans Hebrew", Arial, sans-serif;
   font-size: 1.1rem;
-   max-width: 85ch;        /* keep line length manageable */
-  margin: 0;              /* remove auto-centering */
+   max-width: 85ch;
+  margin: 0;             
   font-size: clamp(18px, 1.6vw, 22px);
   line-height: 1.85;
   color: var(--muted);

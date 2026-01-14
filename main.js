@@ -192,7 +192,7 @@ new Swiper('.success-swiper', {
     };
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('/contact_api.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
