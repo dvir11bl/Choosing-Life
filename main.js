@@ -1,4 +1,4 @@
-// Smooth scroll for the little down-arrow (hero scroll button)
+// Smooth scroll for elements with data-scroll-target
 document.querySelectorAll('[data-scroll-target]').forEach(btn => {
   btn.addEventListener('click', () => {
     const sel = btn.getAttribute('data-scroll-target');
@@ -7,10 +7,7 @@ document.querySelectorAll('[data-scroll-target]').forEach(btn => {
   });
 });
 
-// Removed unused hero video autoplay handler (no #heroVideo in markup)
-
-// Smooth scroll for in-page anchors
-// Slower custom scroll for links pointing to #contact
+// Smooth scroll for in-page anchors, slower for #contact
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href');
@@ -19,13 +16,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
     e.preventDefault();
 
-    // Smooth scroll with sticky-header offset for all anchors
+    // Adjust scroll target for the sticky header
     const header = document.querySelector('.site-header');
     const headerOffset = header ? header.offsetHeight : 0;
     const startY = window.pageYOffset;
     const rect = el.getBoundingClientRect();
-    const targetY = rect.top + window.pageYOffset - headerOffset; // account for sticky header
-    const duration = (id === '#contact') ? 1600 : 700; // slower for the primary CTA
+    const targetY = rect.top + window.pageYOffset - headerOffset;
+    const duration = (id === '#contact') ? 1600 : 700;
     const startTime = performance.now();
 
     const easeInOutCubic = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
@@ -42,7 +39,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// Mobile nav toggle (hamburger)
+// Mobile menu toggle
 (function(){
   const toggle = document.querySelector('.nav__toggle');
   const menu   = document.getElementById('siteMenu');
@@ -58,19 +55,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }));
 })();
 
-// Stronger parallax background position for the hero image
+// Parallax the hero background on scroll (skips reduced motion and small screens).
 (function () {
   const hero = document.getElementById('hero');
-  const bg   = hero?.querySelector('.hero__bg');      // or .hero__image if you use <img>
+  const bg   = hero?.querySelector('.hero__bg');
   if (!hero || !bg) return;
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const smallScreen = window.matchMedia('(max-width: 640px)').matches;
   if (prefersReduced || smallScreen) return;
 
-  const START = 15;   // starting Y%
-  const END   = 82;   // bigger range -> more visible motion (try 78–88)
-  const SPEED = 1.9;  // higher = completes sooner (1.0 = original feel)
+  const START = 15;
+  const END   = 82;
+  const SPEED = 1.5;
 
   let ticking = false;
   const clamp = (n, a, b) => Math.min(Math.max(n, a), b);
@@ -81,14 +78,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
     requestAnimationFrame(() => {
       const rect = hero.getBoundingClientRect();
-      // amount of the hero that has scrolled past the top of the viewport (px)
+      // Amount of the hero that has scrolled past the top.
       const scrolled = Math.max(0, -rect.top);
 
-      // progress reaches 1.0 faster thanks to SPEED
+      // Progress reaches 1.0 faster with SPEED.
       const progress = clamp(scrolled / (rect.height / SPEED), 0, 1);
 
       const y = START + (END - START) * progress;
-      bg.style.setProperty('--bgY', `${y}%`);  // if using <img>, use --imgY instead
+      bg.style.setProperty('--bgY', `${y}%`);
       ticking = false;
     });
   }
@@ -98,23 +95,22 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   window.addEventListener('resize', onScroll);
 })();
 
-// Success stories carousel (Swiper)
+// Success stories swiper
 new Swiper('.success-swiper', {
   slidesPerView: 1,
   spaceBetween: 0,
   centeredSlides: false,
 
-  // 🔁 circular navigation
+  // Loop slides.
   loop: true,
-
   speed: 900,
 
-  // ⏱ autoplay, pause on hover, move in RTL direction
+  // Autoplay, pause on hover, RTL direction.
   autoplay: {
     delay: 4000,
     disableOnInteraction: false,
     pauseOnMouseEnter: true,
-    reverseDirection: true,  // 🔄 moves “right to left”
+    reverseDirection: true,
   },
 
   navigation: {
@@ -126,11 +122,10 @@ new Swiper('.success-swiper', {
     clickable: true,
   },
 
-  // 📐 respect container RTL (usually auto-detected, but we can be explicit)
   rtlTranslate: true,
 });
 
-// Enhance success stories: add avatar + stacked subtitle under name
+// Wrap story title/subtitle with avatar for consistent layout
 (function(){
   const cards = document.querySelectorAll('#success .story-card');
   if (!cards.length) return;
@@ -139,11 +134,11 @@ new Swiper('.success-swiper', {
     const subtitle = card.querySelector('.story__subtitle');
     if (!title || !subtitle) return;
 
-    // Create header wrapper
+    // Create header wrapper.
     const header = document.createElement('div');
     header.className = 'story__header';
 
-    // Use existing avatar tag if present, otherwise create a default one
+    // Use existing avatar or create a default
     let img = card.querySelector('.story__avatar');
     if (!img) {
       img = document.createElement('img');
@@ -152,11 +147,11 @@ new Swiper('.success-swiper', {
       img.alt = `Photo of ${title.textContent?.trim() || 'storyteller'}`;
     }
 
-    // Meta container and move existing nodes inside
+    // Meta container for title/subtitle
     const meta = document.createElement('div');
     meta.className = 'story__meta';
 
-    // Insert header before the current title, then move nodes into meta
+    // Insert header and move nodes into it
     card.insertBefore(header, title);
     meta.appendChild(title);
     meta.appendChild(subtitle);
@@ -165,7 +160,7 @@ new Swiper('.success-swiper', {
   });
 })();
 
-// Contact form: POST JSON to /api/contact
+// Submit contact form as JSON to /contact_api.php
 (function(){
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -184,7 +179,7 @@ new Swiper('.success-swiper', {
     if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'שולחים…'; }
     if (statusEl) { statusEl.textContent = ''; statusEl.style.color = ''; }
 
-    // Collect fields
+    // Collect form fields
     const payload = {
       name: (form.querySelector('#name')?.value || '').trim(),
       phone: (form.querySelector('#phone')?.value || '').trim(),
@@ -202,7 +197,8 @@ new Swiper('.success-swiper', {
       if (statusEl) {
         statusEl.textContent = 'תודה! קיבלנו את הבקשה — אנחנו על זה!';
       }
-      // Reveal success overlay and fade out form content while keeping size
+
+      // Show success overlay and hide the submit button
       const overlay = form.querySelector('.form__success');
       const overlayText = form.querySelector('.form__success-text');
       const actions = form.querySelector('.form__actions');
@@ -228,9 +224,27 @@ new Swiper('.success-swiper', {
   });
 })();
 
-// Interactive feature cards: "side zoom" based on entry corner only
+// Toggle the privacy modal open/close.
 (function(){
-  // Skip on devices that don't support hover (touch) to avoid odd effects
+  const openBtn = document.getElementById('privacy-link');
+  const closeBtn = document.getElementById('close-privacy');
+  const modal = document.getElementById('privacy-modal');
+  if (!openBtn || !closeBtn || !modal) return;
+
+  openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.style.display = 'block';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+})();
+
+// Zoom feature for flash cards from the mouse entry corner
+(function(){
+
+  // Skip on touch devices
   if (!window.matchMedia('(hover: hover)').matches) return;
   const cards = document.querySelectorAll('.feature-card');
   if (!cards.length) return;
@@ -242,7 +256,8 @@ new Swiper('.success-swiper', {
       const r = card.getBoundingClientRect();
       const x = e.clientX - r.left;
       const y = e.clientY - r.top;
-      // Distances squared to each corner
+
+      // Distances squared to each corner.
       const dTL = x*x + y*y;
       const dTR = (r.width - x)*(r.width - x) + y*y;
       const dBL = x*x + (r.height - y)*(r.height - y);
@@ -265,10 +280,9 @@ new Swiper('.success-swiper', {
       card.style.transform = 'scale(1.05)';
     });
 
-    // Mouse move inside does not change origin; keep steady zoom
+    // Keep the same zoom origin during the hover.
     card.addEventListener('mousemove', () => {
       if (!entered) return;
-      // Maintain set transform (CSS transition keeps it smooth)
       card.style.transformOrigin = `${ox} ${oy}`;
       card.style.transform = 'scale(1.05)';
     });

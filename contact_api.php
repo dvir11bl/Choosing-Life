@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-// Read JSON body
+// Read JSON payload from the request body
 $raw = file_get_contents('php://input');
 $data = json_decode($raw, true);
 
@@ -14,10 +14,10 @@ if (!$data) {
     exit;
 }
 
-// Azure Logic App trigger URL
+// Azure Logic App webhook endpoint
 $logicAppUrl = 'https://prod-29.israelcentral.logic.azure.com:443/workflows/c5bc279f849248b48b291a99f4d66750/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=XkXlcURyhUsAktysGZPiHyjmOUHxJT7mbwPx5yIh6nA';
 
-// Send to Azure
+// Forward the request JSON to Azure using cURL
 $ch = curl_init($logicAppUrl);
 curl_setopt_array($ch, [
     CURLOPT_POST => true,
@@ -42,9 +42,8 @@ if ($response === false) {
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-// Respond back to frontend
+// Return a simple status to the caller
 echo json_encode([
     'status' => 'forwarded',
     'azure_http_code' => $httpCode
 ]);
-

@@ -5,39 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>בוחרים בחיים</title>
   <meta name="description" content="תכנית לטיפול בטראומה, תפור עליך, ליווי אישי, תוצאות!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&family=Noto+Sans+Hebrew:wght@400;600;700;800;900&display=swap" />
   <link rel="preload" as="image" href="assets/media/hero.png" imagesrcset="assets/media/hero.png 1x" />
   <link rel="stylesheet" href="./style.css" />
   <script src="./main.js" defer></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KMFM7VV3');</script>
-<!-- End Google Tag Manager -->
-
-<!-- Favicon for most browsers -->
-<link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
-
-<!-- PNG versions -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-
-<!-- For iOS/Android shortcuts -->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-
+  
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KMFM7VV3');
+  </script>
+  
+  <!-- Favicon Configuration -->
+  <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+  
+  <!-- PNG versions -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  
+  <!-- For iOS/Android shortcuts -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 
 </head>
 
 <body>
   
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMFM7VV3"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMFM7VV3"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 
+
+  <!-- SITE NAVBAR -->
   <header class="site-header">
   <nav class="container nav">
     <div class="logo">
@@ -59,70 +68,84 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- HERO -->
     <section id="hero" class="hero" aria-label="כותרת">
+    
       <!-- Background media wrapper -->
       <div class="hero__bg" aria-hidden="true">
         <div class="hero__scrim"></div>
       </div>
-
+    
       <!-- Content -->
       <div class="container hero__content">
-   <h1 class="hero__title">בוחרים בחיים</h1>
+        <h1 class="hero__title">בוחרים בחיים</h1>
+    
+        <p class="hero__subtitle">האירוע לא עוזב אותך? חווה את הטראומה שוב ושוב?</p>
+        <p class="hero__subtitle">התוכנית שבאמת תוציא אותך מהסיוט אחת ולתמיד</p>
+    
+        <div class="hero__cta">
+          <a class="btn btn--brand" href="#contact">השאירו פרטים</a>
+        </div>
 
-  <p class="hero__subtitle">האירוע לא עוזב אותך? חווה את הטראומה שוב ושוב?</p>
-  <p class="hero__subtitle">התוכנית שבאמת תוציא אותך מהסיוט אחת ולתמיד</p>
-
-  <div class="hero__cta">
-    <a class="btn btn--brand" href="#contact">השאירו פרטים</a>
-  </div>
-
-  <button class="hero__scroll" aria-label="גלילת הדף מטה" data-scroll-target="#problem">
-    ↓
-  </button>
-</div>
+        <!-- CTA button -->
+        <button class="hero__scroll" aria-label="גלילת הדף מטה" data-scroll-target="#problem"> ↓ </button>
+      </div>
     </section>
 
-    <section id="problem" class="section section--after-hero">
-    <div class="container container--wide">
-  <h2 class="section__title">מדינה בטראומה</h2>
-  <p class="section__text">
-    עשרות אלפי פוסט טראומטיים נוספו לישראל מאז השביעי באוקטובר.
-    זה אומר מאות אלפי ילדים, הורים, נשים, אחים וחברים המושפעים מהמצב הבלתי נסבל הזה.
-    <br> התמונות לא נותנות מנוח, חווים את האירוע מחדש עם האובדן, הלחץ והחרדה.
-    אף אחד לא מבין את המצב, קשה לישון, קשה לנהל מערכות יחסים ועוד ועוד...
-    <br>חייבים פתרון.
-  </p>
-  </div>
-</section>
+    <!-- PROBLEM -->
+    <section id="problem" class="section section--after-hero" aria-label="מדינה בטראומה">
+      <div class="container container--wide">
+
+        <!-- Section title-->
+        <h2 class="section__title">מדינה בטראומה</h2>
+
+        <!-- Section content-->
+        <p class="section__text">
+          עשרות אלפי פוסט טראומטיים נוספו לישראל מאז השביעי באוקטובר.
+          זה אומר מאות אלפי ילדים, הורים, נשים, אחים וחברים המושפעים מהמצב הבלתי נסבל הזה.
+          <br> התמונות לא נותנות מנוח, חווים את האירוע מחדש עם האובדן, הלחץ והחרדה.
+          אף אחד לא מבין את המצב, קשה לישון, קשה לנהל מערכות יחסים ועוד ועוד...
+          <br>חייבים פתרון.
+        </p>
+      </div>
+    </section>
 
 <!-- ABOUT -->
-<section id="about" class="section section--soft about" aria-label="על התוכנית">
+<section id="about" class="section section--soft about" aria-label="אנחנו איתך">
   <div class="container container--wide">
+
+    <!-- Section title-->
     <h2 class="section__title">אנחנו איתך</h2>
+
+    <!-- Section content-->
     <p class="section__text">
-      אנחנו בבוחרים בחיים שואפים לפתרון מלא ולא רק לתמיכה או התמודדות עם הפוסט טראומה. 
+      אנחנו בבוחרים בחיים שואפים לפתרון מלא ולא רק לתמיכה או התמודדות עם הפוסט טראומה.
       <br>אנחנו רוצים אותך בתפקוד מלא עם חיים נורמטיביים, אושר והצלחה - מכאן והלאה!<br>
       אז לא משנה אם לחמת, אם השתתפת במסיבת הנובה, אם היית בשבי חמאס או שכלת מישהו אהוב - התכנית שלנו היא בשבילך.
     </p>
 
+    <!-- Program flash cards -->
     <div class="features" role="list">
       <article class="feature-card feature-card--1" role="listitem">
         <h3 class="feature__title">תוכנית אישית</h3>
         <p class="feature__text">ניפגש לראיון ונבנה תכנית מותאמת אישית עבורך.</p>
       </article>
+
       <article class="feature-card feature-card--2" role="listitem">
         <h3 class="feature__title">דיאנטיקה</h3>
         <p class="feature__text">טכניקה ייחודית למחיקת ההשפעה השלילית של מאורעות טראומטיים.</p>
       </article>
+
       <article class="feature-card feature-card--3" role="listitem">
         <h3 class="feature__title">כלים לחיים מאושרים</h3>
         <p class="feature__text">נלמד שיטות וכלים מעשיים לאושר והצלחה.</p>
       </article>
+
       <article class="feature-card feature-card--4" role="listitem">
         <h3 class="feature__title">פעילויות מהנות</h3>
         <p class="feature__text">במהלך התכנית נשלב פעילויות חוויתיות ומהנות לפי בחירתך.</p>
       </article>
     </div>
 
+    <!-- CTA button-->
     <div class="about__cta">
       <a class="btn btn--brand btn--xl" href="#contact">אני בוחר בחיים!</a>
     </div>
@@ -132,12 +155,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- TEAM -->
 <section id="team" class="section section--soft team" aria-label="Team">
   <div class="container container--wide">
+
+    <!-- Section title-->
     <h2 class="section__title">הצוות שלנו</h2>
 
+    <!-- Section content-->
     <div class="team__grid" role="list">
       <article class="team__member" role="listitem">
         <div class="team__photo-frame">
-          <img class="team__photo" src="assets/media/Shelley.jpg" alt="Shelley" />
+          <img class="team__photo" src="assets/media/Shelley.jpg" alt="Shelley Adiv" />
         </div>
         <h3 class="team__name">שלי אדיב</h3>
         <p class="team__bio">
@@ -148,7 +174,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <article class="team__member" role="listitem">
         <div class="team__photo-frame">
-          <img class="team__photo" src="assets/media/Meir.jpg" alt="Meir" />
+          <img class="team__photo" src="assets/media/Meir.jpg" alt="Meir Blorian" />
         </div>
         <h3 class="team__name">מאיר בלוריאן</h3>
         <p class="team__bio">מנהל כללי ואחראי חווית לקוח.</p>
@@ -157,9 +183,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </section>
 
-<section id="success" class="section section--soft">
+<!-- SUCCESS -->
+<section id="success" class="section section--soft" aria-label="סיפורי הצלחה">
   <div class="container container--wide">
+
+    <!-- Section title-->
     <h2 class="section__title">סיפורי הצלחה</h2>
+
+    <!-- Section content-->
     <p class="section__text">סיפורים של אנשים שקיבלו דיאנטיקה.</p>
 
     <!-- Swiper -->
@@ -169,22 +200,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- Slide 1 -->
         <div class="swiper-slide">
           <article class="story-card">
-            <img class="story__avatar" src="assets/media/asaf.jpeg" alt="תמונת המספר" />
+            <img class="story__avatar" src="assets/media/asaf.jpeg" alt="אסף הלבני" />
             <h3 class="story__title">אסף הלבני</h3>
             <p class="story__subtitle">שכל את אחיו</p>
             <div class="story__text">
               <p>
-                ״המלחמה תפסה אותי כמ''פ קבע של פלוגת הכשרה בחיל השריון. 
-                ביום השלישי למלחמה העירו אותי באמצע הלילה והודיעו לי שאחי הגדול, 
+                ״המלחמה תפסה אותי כמ''פ קבע של פלוגת הכשרה בחיל השריון.
+                ביום השלישי למלחמה העירו אותי באמצע הלילה והודיעו לי שאחי הגדול,
                 סרן יובל הליבני נהרג בקרב בצומת שער הנגב לאחר שהפלוגה שלו נקלעה למארב של מחבלים שהתבצרו במקום.
                 באותו רגע הרגשתי שנהרסו לי החיים ואני לא יודע איך להמשיך משם.
-                אחרי שבוע של שבעה והתאבלות על אחי חזרתי לצבא לחצי שנה של סבל גדול. 
+                אחרי שבוע של שבעה והתאבלות על אחי חזרתי לצבא לחצי שנה של סבל גדול.
                 לא הצלחתי לחזור להיות המפקד שהייתי והאדם המלא שמחה שהייתי והרגשתי שנהרסו לי החיים.
                 אחרי השחרור שלי הציעו לי להגיע ולקבל סשן של דיאנטיקה, לא הייתה לי ממשות על מה זה כל-כך אבל הסכמתי.
                 כבר אחרי הסשן הראשון הרגשתי איך כל דרך ההסתכלות שלי על האבל והאובדן משתנה.
                 לאחר 40 שעות של קבלת סשנים של דיאנטיקה הרגשתי שאני יכול לנשום שוב. הרגשתי שמגיע לי להיות שמח,
                 להיות מאושר ולבנות את החיים שעליהם חלמתי לפני המוות של אחי.
-                שחררתי מעליי את האשמה שאני חי והוא מת, והבנתי שהוא היה רוצה בשבילי שאהיה שמח ואחיה את החיים באופן הכי שלם שיש.
+                שחררתי מעליי את האשמה שאני חי והוא מת, והבנתי שהוא היה רוצה בשבילי שאהיה שמח ואחיה את החיים באופן הכי
+                שלם שיש.
                 כיום, שנה וחצי אחר כך, אני יותר שמח משהייתי אי פעם על אף המחסור התמידי של אחי האהוב.
                 אין ספק שלא הייתי במצב שאני נמצא בו היום ללא הטכנולוגיה המדהימה של דיאנטיקה!״
               </p>
@@ -195,18 +227,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- Slide 2 -->
         <div class="swiper-slide">
           <article class="story-card">
-            <img class="story__avatar" src="assets/media/eyal.jpeg" alt="תמונת המספר" />
+            <img class="story__avatar" src="assets/media/eyal.jpeg" alt="איל בן תמר" />
             <h3 class="story__title">איל בן תמר</h3>
             <p class="story__subtitle">הלום קרב</p>
             <div class="story__text">
               <p>
-               ״השתתפתי במלחמת שלום הגליל בחיל ההנדסה. במסגרת הלחימה איבדתי חברים קרובים,
-                 יצאתי משם בהלם קרב. לא הייתי מודע למצב שלי, תופעות הגיעו אחת אחרי השניה - קוצר נשימה, חרדות ותמונות קשות - 
-                כל דבר שהזכיר משהו מהמלחמה החזיר אותי לכל הסרטים והתמונות מהמלחמה. סבלתי למעלה מ-30 שנים עד שנתקלתי בדיאנטיקה - אז הבנתי מה עובר עליי.
-                 קיבלתי תהליכים מדויקים שכבר בהתחלה נתנו לי הקלה מדהימה,
-                  עד שבסופו של התהליך נפטרתי לגמרי מכל התופעות והיום אני מאושר וללא שום זכר לכל התופעות שחוויתי בעבר מההלם קרב.
+                ״השתתפתי במלחמת שלום הגליל בחיל ההנדסה. במסגרת הלחימה איבדתי חברים קרובים,
+                יצאתי משם בהלם קרב. לא הייתי מודע למצב שלי, תופעות הגיעו אחת אחרי השניה - קוצר נשימה, חרדות ותמונות קשות
+                -
+                כל דבר שהזכיר משהו מהמלחמה החזיר אותי לכל הסרטים והתמונות מהמלחמה. סבלתי למעלה מ-30 שנים עד שנתקלתי
+                בדיאנטיקה - אז הבנתי מה עובר עליי.
+                קיבלתי תהליכים מדויקים שכבר בהתחלה נתנו לי הקלה מדהימה,
+                עד שבסופו של התהליך נפטרתי לגמרי מכל התופעות והיום אני מאושר וללא שום זכר לכל התופעות שחוויתי בעבר מההלם
+                קרב.
                 אני מאד ממליץ לכל מי שחווה את מה שאני חוויתי,
-                להשתמש בדיאנטיקה. הטיפול במאורעות הקשים הוא מאד מדויק ומוציא את כל התופעות מהשורש והופך אותך למה שאני מתאר את עצמי: אדם שנולד מחדש.״
+                להשתמש בדיאנטיקה. הטיפול במאורעות הקשים הוא מאד מדויק ומוציא את כל התופעות מהשורש והופך אותך למה שאני
+                מתאר את עצמי: אדם שנולד מחדש.״
 
               </p>
             </div>
@@ -216,17 +252,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- Slide 3 -->
         <div class="swiper-slide">
           <article class="story-card">
-            <img class="story__avatar" src="assets/media/sonia.jpeg" alt="תמונת המספר" />
+            <img class="story__avatar" src="assets/media/sonia.jpeg" alt="סוניה דוידוב" />
             <h3 class="story__title">סוניה דוידוב</h3>
             <p class="story__subtitle">נמלטה משדרות תחת אש</p>
             <div class="story__text">
               <p>
                 “ב-7 באוקטובר 2023 נאלצתי לברוח משדרות.
                 הייתי תקועה שעות בממד עם הכלבה שלי, שמעתי את הירי בחוץ ולא ידעתי אם זה הסוף שלי או לא.
-                פתאום שמעתי דפיקות בדלת ומישהו צועק את שמי, הייתי מבולבלת לרגע אבל יצאתי מהממד ופתחתי את הדלת, ידיד שלי עמד שם ואמר – “בואי, אנחנו בורחים”. היה לו אקדח ומשהו בי אמר לי שזה הדבר הנכון לעשות. היינו תחת אש וזה היה מפחיד אבל חבר שלי קיבל כמה החלטות נכונות והגענו בשלום למרכז הארץ.
-                ברחתי משדרות אבל… לא ברחתי מהטראומה, או כמו שאמרתי – עזבתי את שדרות אבל שדרות לא עזבה אותי. חייתי את ה-7 באוקטובר בכל רגע. חוויתי לחץ וחרדה והייתי ערנית ודרוכה כל הזמן. “שמעתי” ירי לא קיים ו“ראיתי” טרוריסטים רודפים אחריי. הגוף שלי רעד ולא יכולתי לראות שום עתיד. הייתי בייאוש.
+                פתאום שמעתי דפיקות בדלת ומישהו צועק את שמי, הייתי מבולבלת לרגע אבל יצאתי מהממד ופתחתי את הדלת, ידיד שלי
+                עמד שם ואמר – “בואי, אנחנו בורחים”. היה לו אקדח ומשהו בי אמר לי שזה הדבר הנכון לעשות. היינו תחת אש וזה
+                היה מפחיד אבל חבר שלי קיבל כמה החלטות נכונות והגענו בשלום למרכז הארץ.
+                ברחתי משדרות אבל… לא ברחתי מהטראומה, או כמו שאמרתי – עזבתי את שדרות אבל שדרות לא עזבה אותי. חייתי את ה-7
+                באוקטובר בכל רגע. חוויתי לחץ וחרדה והייתי ערנית ודרוכה כל הזמן. “שמעתי” ירי לא קיים ו“ראיתי” טרוריסטים
+                רודפים אחריי. הגוף שלי רעד ולא יכולתי לראות שום עתיד. הייתי בייאוש.
                 היה בלתי אפשרי לחיות עם כל הלחץ הזה.
-                התקשרתי לשלי שעזרה לי בעבר עם בעיה גופנית שהייתה לי והיא הגיעה למקום בו שהיתי כדי לעשות לי טיפול דיאנטיקה. לא ידעתי למה אני נכנסת אבל סמכתי על שלי.
+                התקשרתי לשלי שעזרה לי בעבר עם בעיה גופנית שהייתה לי והיא הגיעה למקום בו שהיתי כדי לעשות לי טיפול
+                דיאנטיקה. לא ידעתי למה אני נכנסת אבל סמכתי על שלי.
                 שלי ישבה איתי 7 שעות!!! היא הסבירה לי מה אנחנו הולכים לעשות ואז נכנסה לפעולה.
                 בסוף הפגישה יכולתי לחייך, יכולתי להירגע, המיינד שלי כבר לא זרק עליי תמונות מזעזעות והמטען שסחבתי נעלם!
                 דיאנטיקה זה כלי מדהים, צריך להשתמש בו באופן נרחב על כל קורבנות הטרור ועל כל מי שחווה טראומה בחיים.
@@ -250,27 +291,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- CONTACT -->
     <section id="contact" class="section contact" aria-label="צרו קשר">
       <div class="container container--wide">
+    
+        <!-- Section title-->
         <h2 class="section__title">אנחנו רוצים לעזור לך<br> בוא נדבר</h2>
+    
+        <!-- Section content -->
         <p class="section__text">השאירו פרטים ונחזור אליכם עם מידע נוסף ושאלון התאמה.</p>
-
+    
+        <!-- Contact form -->
         <form id="contactForm" class="contact__form" novalidate>
           <div class="form__row">
+    
+            <!-- Full name -->
             <div class="field">
               <label for="name">שם מלא</label>
               <input id="name" name="name" type="text" required placeholder="ישראל ישראלי" />
             </div>
+    
+            <!-- Phone number -->
             <div class="field">
               <label for="phone">טלפון</label>
-              <input id="phone" name="phone" type="tel" inputmode="tel" pattern="[0-9+\-\s]{8,}" required placeholder="050-1234567" />
+              <input id="phone" name="phone" type="tel" inputmode="tel" pattern="[0-9+\-\s]{8,}" required
+                placeholder="050-1234567" />
             </div>
           </div>
-
+    
           <div class="form__row">
+    
+            <!-- Email address -->
             <div class="field field--full">
               <label for="email">אימייל</label>
               <input id="email" name="email" type="email" placeholder="you@example.com" />
             </div>
           </div>
+    
           <!-- Consent checkbox -->
           <div class="form__row form__row--consent">
             <div class="field field--full form__consent">
@@ -278,15 +332,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <input id="consent" name="consent" type="checkbox" required />
                 <label for="consent">אני מאשר את שליחת המידע</label>
               </div>
-              <div class="form__note">מסירת המידע היא מרצון ובהסכמה. אם לא תמסור פרטים, לא נוכל ליצור איתך קשר או לטפל בפנייתך.</div>
+              <div class="form__note">מסירת המידע היא מרצון ובהסכמה. אם לא תמסור פרטים, לא נוכל ליצור איתך קשר או לטפל
+                בפנייתך.</div>
             </div>
           </div>
+    
+          <!-- Submit button -->
           <div class="form__actions">
             <button type="submit" class="btn btn--brand">חזרו אליי!</button>
             <span id="contactFormStatus" class="form__status" aria-live="polite"></span>
           </div>
-
-          <!-- Success overlay (centered, appears after submit) -->
+    
+          <!-- Success overlay -->
           <div class="form__success" aria-hidden="true" tabindex="-1">
             <div class="form__success-icon" aria-hidden="true">✓</div>
             <div class="form__success-text">תודה! קיבלנו את הפנייה שלכם — אנחנו על זה.</div>
@@ -294,16 +351,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </form>
       </div>
     </section>
-
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer__row">
+
+      <!-- Branding -->
       <div class="footer__brand">
         <img src="assets/media/Logo.svg" width="40" height="40" alt="" />
         <span>בוחרים בחיים</span>
       </div>
 
+      <!-- Sections links-->
       <ul class="footer__links" role="list">
         <li><a href="#problem">המצב כיום</a></li>
         <li><a href="#about">מי אנחנו</a></li>
@@ -312,19 +372,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
     
 
-    <!-- קישור למדיניות -->
-<div style="text-align:center; margin:40px 0;">
-  <a href="#" id="privacy-link" style="color:white; text-decoration:underline;">מדיניות פרטיות</a>
+    <!-- Privacy policy link -->
+<div class="privacy-link-wrap">
+  <a href="#" id="privacy-link" class="privacy-link">מדיניות פרטיות</a>
 </div>
 
-<!-- חלון קופץ למדיניות -->
-<div id="privacy-modal" style="display:none; position:fixed; top:0; right:0; bottom:0; left:0; background:rgba(0,0,0,0.65); z-index:9999;">
-  <div style="background:#fff; color:#000; padding:30px; max-width:850px; margin:60px auto; border-radius:8px; max-height:80vh; overflow-y:auto; box-shadow:0 5px 20px rgba(0,0,0,0.3); direction:rtl;">
-    <button id="close-privacy" style="float:left; background:#333; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer; font-size:14px;">סגור ✖</button>
-    <h2 style="text-align:center;">מדיניות פרטיות – אתר "בוחרים בחיים"</h2>
-    <p style="text-align:center; font-weight:bold;">עודכן בתאריך: 16 באוקטובר 2025<br>בהתאם לתיקון 13 לחוק הגנת הפרטיות, התשמ"א–1981</p>
-    <div style="text-align:right; line-height:1.7;">
-      <!-- כאן מתחיל התוכן שלך -->
+<!-- Privacy policy modal -->
+<div id="privacy-modal" class="privacy-modal">
+  <div class="privacy-modal__content">
+    <button id="close-privacy" class="privacy-modal__close">סגור ✖</button>
+    <h2 class="privacy-modal__title">מדיניות פרטיות – אתר "בוחרים בחיים"</h2>
+    <p class="privacy-modal__updated">עודכן בתאריך: 16 באוקטובר 2025<br>בהתאם לתיקון 13 לחוק הגנת הפרטיות, התשמ"א–1981</p>
+    <div class="privacy-modal__body">
+      <!-- Privacy policy content -->
       <p><strong>ברוכים הבאים לאתר "בוחרים בחיים"</strong> (להלן: "האתר"). אנחנו מכבדים את פרטיותך ורוצים שתדע כיצד אנו שומרים ומעבדים את המידע שלך.</p>
 
       <h3>1. מי אנחנו</h3>
@@ -383,24 +443,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       דוא"ל: <a href="mailto:shelley@a2b-infra.com">shelley@a2b-infra.com</a>
       </p>
 
-      <p style="margin-top:30px;">
+      <p class="privacy-modal__closing">
       בעת שליחת פרטיך בטופס באתר, הינך מאשר/ת כי קראת והסכמת למדיניות הפרטיות. ניתן בכל עת לעיין במידע, לתקנו או לבקש את מחיקתו.
       </p>
-      <!-- כאן מסתיים התוכן שלך -->
     </div>
   </div>
 </div>
 
-<script>
-document.getElementById("privacy-link").addEventListener("click", function(e){
-  e.preventDefault();
-  document.getElementById("privacy-modal").style.display = "block";
-});
-document.getElementById("close-privacy").addEventListener("click", function(){
-  document.getElementById("privacy-modal").style.display = "none";
-});
-</script>
-
+<!-- Copyright -->
 <div class="container footer__copy">
       <small>© 2025 כל הזכויות שמורות. שלי אדיב.<br>
       דיאנטיקה היא סימן מסחרי וסימן שירות בבעלות Religious Technology Center ונמצאים בשימוש באישורו.
@@ -410,6 +460,7 @@ document.getElementById("close-privacy").addEventListener("click", function(){
     </div>
   </footer>
 
+  <!-- Success section swiper link -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </body>

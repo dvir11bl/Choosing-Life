@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;600;700;800;900&display=swap');
-
-/* ===== Base / Theme ===== */
+/* Base theme variables and defaults. */
 :root{
-  --brand: #35A8FF;   /* primary */
-  --brand-dark: #1E90FF; /* slightly darker variant for footer */
-  --accent: #FF8A00;  /* secondary */
-  --ink: #111827;     /* text */
-  --muted: #6B7280;   /* secondary text */
+  --brand: #35A8FF;
+  --brand-dark: #1E90FF;
+  --accent: #FF8A00;
+  --ink: #111827;
+  --muted: #6B7280;
   --bg: #ffffff;
   --surface: #F5F7FB;
   --radius: 16px;
@@ -15,10 +12,14 @@
   --space: 16px;
   --space-lg: 32px;
   --space-xl: 64px;
-  --header: 72px;     /* sticky header height for scroll offset */
+
+  /* Sticky header height for scroll offset */
+  --header: 72px;
+
   /* Spacing rhythm */
   --section-gap: clamp(48px, 8vw, 88px);
   --section-gap-xl: clamp(72px, 10vw, 128px);
+
   /* Shadows */
   --shadow-card: 0 10px 24px rgba(0,0,0,.06);
   --shadow-card-hover: 0 14px 30px rgba(0,0,0,.12);
@@ -27,7 +28,7 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0; overflow-x: hidden; width:100%;}
 
-/* Prevent media from overflowing on small screens */
+/* Keep media within the viewport */
 img, svg, video{ max-width: 100%; height: auto; display: block; }
 
 body{
@@ -36,6 +37,10 @@ body{
   background: var(--bg);
   line-height: 1.65;
 }
+
+/* Show hand cursor for interactive elements. */
+a, button, .btn{ cursor: pointer; }
+input[type="checkbox"]{ cursor: pointer; }
 
 .container{max-width:var(--container);margin-inline:auto;padding-inline:var(--space)}
 
@@ -52,7 +57,7 @@ body{
 .logo{ display:flex; align-items:center; gap:8px; font-weight:900; }
 
 
-/* Menu */
+/* Top navigation layout */
 .menu{ display:flex; align-items:center; gap:18px; margin:0; padding:0; list-style:none; }
 .nav__link{
   text-decoration:none; color: var(--ink);
@@ -61,7 +66,7 @@ body{
 }
 .nav__link:hover{ background: rgba(0,0,0,.05); }
 
-/* CTA in navbar */
+/* Primary nav CTA styling */
 .btn--brand{ background: var(--brand); color:#fff; }
 .nav__cta{ padding:10px 16px; border-radius: 999px; }
 
@@ -76,22 +81,17 @@ body{
 }
 
 .btn--brand{ background: var(--brand); color:#fff; }
-.btn--brand:hover { background: #1E90FF;}
-
-.btn--light{ background: #ffffff; color:#111; }
-.btn--light:hover {  background: #f0f0f0; }
-
-/* Removed unused .btn--ghost */
+.btn--brand:hover { background: #1E90FF; }
 
 .site-header .nav{
-  max-width: none;    /* override container constraint */
+  max-width: none;
   width: 100%;
-  padding-inline: 16px;   /* or 24px if you want a bit more breathing room */
+  padding-inline: 16px;
   display:flex; align-items:center; justify-content:space-between;
 }
 .logo{font-weight: 900}
 
-/* Ensure consistent font for brand name, hero title and subtitle across OS */
+/* Keep hero and brand typography consistent */
 .logo,
 .hero__title,
 .hero__subtitle{
@@ -100,7 +100,7 @@ body{
   font-style: normal;
 }
 
-/* Mobile nav toggle */
+/* Mobile nav toggle button */
 .nav__toggle{
   display: none;
   border: 0;
@@ -131,7 +131,7 @@ body{
   .nav__cta{ align-self: stretch; text-align:center; }
 }
 
-/* ===== Footer ===== */
+/* Footer layout and links */
 .site-footer{
   background: var(--brand-dark);
   color: #fff;
@@ -145,7 +145,60 @@ body{
 .footer__copy{ margin-top: clamp(28px, 5vw, 40px); text-align:center; opacity:.9; font-size: .85rem; }
 .site-footer{ padding-bottom: calc(clamp(18px, 4vw, 32px) + env(safe-area-inset-bottom)); }
 
-/* ===== Sections ===== */
+/* Privacy modal overlay and content */
+.privacy-link-wrap{
+  text-align: center;
+  margin: 40px 0;
+}
+.privacy-link{
+  color: #fff;
+  text-decoration: underline;
+}
+.privacy-modal{
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 9999;
+}
+.privacy-modal__content{
+  background: #fff;
+  color: #000;
+  padding: 30px;
+  max-width: 850px;
+  margin: 60px auto;
+  border-radius: 8px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  direction: rtl;
+}
+.privacy-modal__close{
+  float: left;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.privacy-modal__title{
+  text-align: center;
+}
+.privacy-modal__updated{
+  text-align: center;
+  font-weight: bold;
+}
+.privacy-modal__body{
+  text-align: right;
+  line-height: 1.7;
+}
+.privacy-modal__closing{
+  margin-top: 30px;
+}
+
+/* Base section spacing and offsets */
 #problem { scroll-margin-top: var(--header); }
 
 .section{ padding-block: var(--section-gap); }
@@ -166,7 +219,7 @@ body{
   background: linear-gradient(to left, transparent, rgba(0,0,0,.08), transparent);
 }
 
-/* Compact gap specifically between Problem and About */
+/* Tighten spacing between Problem and About */
 #problem + #about { padding-top: calc(var(--section-gap) * 0.2); }
 .section__title {
     font-family: "Playpen Sans Hebrew", cursive, "Noto Sans Hebrew", sans-serif;
@@ -174,12 +227,12 @@ body{
   font-weight: 700;
   font-style: normal;
   color: var(--ink);
-  font-size: clamp(34px, 4.6vw, 64px);  /* bigger than before */
+  font-size: clamp(34px, 4.6vw, 64px);
   margin-bottom: 14px; 
   text-align: right;
 }
 
-/* Regular paragraph text */
+/* Section body text */
 .section__text {
   font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans Hebrew", Arial, sans-serif;
   font-size: 1.1rem;
@@ -191,9 +244,7 @@ body{
   text-align: right;   
 }
 
-/* Removed unused .lead helper */
-
-/* ===== HERO ===== */
+/* Hero section layout and background */
 .hero{
   position: relative;
   min-block-size: clamp(54vh, 64vh, 72vh);
@@ -202,15 +253,13 @@ body{
   overflow: clip;
 }
 
-/* Removed unused .hero__video / .hero__image helpers */
-
-/* Hero background element holds the image */
+/* Hero background image layer */
 .hero__bg{
   position: absolute; inset: 0;
   background-image: url("assets/media/hero.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% var(--bgY, 15%); /* start at Y=15% */
+  background-position: 50% var(--bgY, 15%);
   will-change: background-position;
 }
 
@@ -229,6 +278,7 @@ body{
   margin-inline: auto;
 }
 
+/* Hero title typography and single-line clamp */
 .hero__title{
   margin: 0 0 8px;
   font-size: clamp(44px, 7.4vw, 128px);
@@ -236,7 +286,6 @@ body{
   letter-spacing: 0.1px;
   line-height: 1.05;
   text-shadow: 0 8px 24px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.35);
-  /* Force single-line title on all screens */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -248,7 +297,6 @@ body{
   display: block;
   width: 130px;
   height: 6px;
-  /* Increase space to emphasize the title as the primary element */
   margin: 26px auto 0;
   background: linear-gradient(90deg, var(--brand) 0%, #7cc7ff 100%);
   border-radius: 999px;
@@ -267,17 +315,18 @@ body{
   border-radius: 12px;
 }
 
+/* Hero CTA layout */
 .hero__cta {
-  margin-top: 80px;          /* more space above the buttons */
+  margin-top: 80px;
   display: flex;
-  gap: 46px;                 /* more space between buttons */
+  gap: 46px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .hero__cta .btn {
-  font-size: 1.1rem;    /* make hero CTAs slightly more prominent */
-  padding: 16px 32px;   /* larger tap target */
+  font-size: 1.1rem;
+  padding: 16px 32px;
 }
 
 .hero__scroll{
@@ -291,17 +340,15 @@ body{
   animation: bounce 2s infinite;
 }
 
-/* Smooth anchor scroll offset (for sticky header) */
+/* Smooth anchor scroll offset for sticky header */
 .hero, .section{ scroll-margin-top: var(--header); }
 
-/* ===== Responsive tweaks ===== */
+/* Responsive overrides */
 @media (max-width: 720px){
-  /* mobile-specific tweaks live here as needed */
 }
 
-/* ===== Accessibility / Motion ===== */
+/* Motion-reduction settings. */
 @media (prefers-reduced-motion: reduce){
-  /* motion-reduction handled per-component (e.g., heartbeat) */
 }
 
 @keyframes bounce {
@@ -310,9 +357,9 @@ body{
   60% { transform: translateY(3px); }
 }
 
-/* --- Success Swiper reset (namespaced) --- */
+/* Success slider layout and RTL fixes */
 .success-swiper { 
-  direction: rtl;          /* slider math in LTR to avoid RTL bugs */
+  direction: rtl;
   overflow: hidden;
   margin-top: 120px;
 }
@@ -320,12 +367,12 @@ body{
   transition-timing-function: cubic-bezier(.22,.61,.36,1);
 }
 .success-swiper .swiper-slide {
-  width: 100% !important;  /* exactly one slide visible */
+  width: 100% !important;
   display: flex;
   justify-content: center;
 }
 
-/* Card content stays RTL */
+/* Story card layout */
 .story-card{
   direction: rtl; text-align: right;
   width: min(900px, 92vw);
@@ -338,54 +385,48 @@ body{
 .story__header{
   display:flex; align-items:flex-start; gap:32px;
   position: relative;
-  padding: 20px;              /* roomy header area */
-  margin-bottom: 38px;        /* space before story text */
-  background: #F7F7F7;        /* neutral very light gray */
+  padding: 20px;
+  margin-bottom: 38px;
+  background: #F7F7F7;
   border-radius: 14px;
   box-shadow: 0 8px 22px rgba(0,0,0,.08);
 }
 .story__avatar{ width:180px; height:180px; border-radius:50%; object-fit:cover; flex:0 0 180px; border:2px solid #e6eef6; background:#f3f6fa; box-shadow: 0 10px 24px rgba(0,0,0,.12), 0 3px 8px rgba(0,0,0,.08); }
 .story__meta{ display:flex; flex-direction:column; min-width:0; 
-  /* Start the meta (title + subtitle) at 1/5 of the avatar height (180px * 0.20 = 36px) */
   margin-top: 36px;
 }
 .story__title{ color:var(--brand); margin:0 0 4px; font-weight:700; font-size:2.5rem; text-shadow: 0 2px 8px rgba(0,0,0,.08); }
 .story__subtitle{ color:var(--muted); margin:0 0 16px; font-size:1.2rem; }
 .story__text{ color:var(--ink); line-height:1.8; font-size:1.05rem; }
 
-/* Controls & dots with blue accent */
+/* Slider controls and pagination */
 .success-swiper .swiper-button-next,
 .success-swiper .swiper-button-prev { color: var(--brand); }
 .success-swiper .swiper-pagination-bullet { background:#cfd6df; opacity:1; }
 .success-swiper .swiper-pagination-bullet-active { background: var(--brand); }
-/* Make pagination respect RTL layout */
 .success-swiper .swiper-pagination{ direction: rtl; }
 @media (max-width: 740px){
   .success-swiper .swiper-button-next,
   .success-swiper .swiper-button-prev{ display:none; }
 }
 
-/* --- Success section: mobile fit fixes --- */
-/* Ensure anchor scroll doesn’t hide the title under the sticky header */
+/* Success section mobile fixes */
 #success { scroll-margin-top: calc(var(--header) + 8px); }
 
 @media (max-width: 640px){
-  /* Make the Success header fit comfortably on small phones */
   #success .section__title{
     font-size: clamp(26px, 6.8vw, 34px);
     line-height: 1.2;
   }
-  /* Reduce spacing before the carousel so the header isn’t visually “floating” */
   .success-swiper{ margin-top: 28px; }
 }
 
-/* ===== About ===== */
+/* About and team sections */
 .about { background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%); }
 .about .section__text { margin-bottom: 8px; }
 
 .team { background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%); }
 .team__grid{
-  /* more space between title and members */
   margin-top: 64px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -399,7 +440,7 @@ body{
   margin: 12px 0 0;
   font-weight: 800;
   color: var(--brand);
-  font-size: clamp(20px, 2.1vw, 26px); /* bigger than bio */
+  font-size: clamp(20px, 2.1vw, 26px);
   line-height: 1.2;
 }
 .team__photo-frame{
@@ -420,7 +461,6 @@ body{
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  /* Bias crop to show more of the top of the image */
   object-position: center 25%;
   display: block;
   box-shadow: 0 10px 24px rgba(0,0,0,.12);
@@ -429,11 +469,9 @@ body{
 .team__bio{ margin: 14px 0 0; color: var(--muted); font-size: clamp(16px, 1.4vw, 18px); }
 
 .features{
-  /* Extra space between subtitle and cards */
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  /* Larger gap between cards */
   gap: 22px;
 }
 @media (max-width: 980px){ .features{ grid-template-columns: repeat(2, 1fr); } }
@@ -454,24 +492,24 @@ body{
 .feature__title{ margin:0 0 6px; font-weight:800; font-size:1.15rem; }
 .feature__text{ margin:0; color:#17324d; line-height:1.7; }
 
-/* Colorful accents per card */
+/* Feature card accent gradients */
 .feature-card--1{ background: linear-gradient(135deg, #E0F2FF 0%, #C3E7FF 100%); }
 .feature-card--2{ background: linear-gradient(135deg, #E6FFFA 0%, #CFF9EF 100%); }
 .feature-card--3{ background: linear-gradient(135deg, #FFF3E0 0%, #FFE1B7 100%); }
 .feature-card--4{ background: linear-gradient(135deg, #F3E8FF 0%, #E3D4FF 100%); }
 
-.about__cta{ display:flex; justify-content:center; /* Extra gap between cards and CTA */ margin-top: 44px; }
-.btn--xl{ padding: 20px 40px; font-size: 1.2rem; border-radius: 999px; }
+/* About CTA styles */
+.about__cta{ display:flex; justify-content:center; margin-top: 72px; }
+.btn--xl{ padding: 22px 46px; font-size: 1.3rem; border-radius: 999px; }
 
-/* More engaging About CTA button */
+/* Animated CTA button treatment */
 .about__cta .btn--brand{
   background: linear-gradient(135deg, #35A8FF 0%, #1E90FF 100%);
-  box-shadow: 0 10px 24px rgba(30,144,255,.35), inset 0 0 0 1px rgba(255,255,255,.35);
+  box-shadow: 0 14px 30px rgba(30,144,255,.4), inset 0 0 0 1px rgba(255,255,255,.35);
   position: relative;
-  animation: breath 2.8s ease-in-out infinite;
+  animation: breath 2.4s ease-in-out infinite;
 }
 .about__cta .btn--brand::after{
-  /* subtle shine sweep */
   content:""; position:absolute; inset:0; border-radius:inherit;
   background: linear-gradient(120deg, rgba(255,255,255,.0) 0%, rgba(255,255,255,.22) 50%, rgba(255,255,255,.0) 100%);
   transform: translateX(-120%);
@@ -488,7 +526,7 @@ body{
   .feature-card:hover{ transform:none; box-shadow: 0 8px 20px rgba(0,0,0,.06); }
 }
 
-/* ===== Contact ===== */
+/* Contact section and form layout */
 .contact { background: var(--surface); }
 .contact { margin-top: var(--section-gap-xl); }
 .contact .section__text { margin-bottom: 20px; }
@@ -512,7 +550,6 @@ body{
 .field label{ font-weight: 700; font-size: .95rem; color: var(--ink); }
 
 .field--full { grid-column: 1 / -1; }
-/* full-width helper (no animation here to keep layout stable) */
 
 .field input,
 .field textarea{
@@ -535,7 +572,7 @@ body{
 .form__actions.submitted{ justify-content: flex-start; }
 .form__status{ color: #059669; font-weight: 700; }
 .form__note{ color: var(--muted); font-size: .9rem; margin-top: 10px; }
-/* Consent checkbox inline and larger */
+/* Consent checkbox layout. */
 .form__row--consent{ margin-top: 22px; }
 .form__consent{ display:flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .form__consent-line{ display:flex; align-items: center; gap: 14px; }
@@ -543,7 +580,7 @@ body{
 .form__consent label{ margin: 0; }
 .form__consent .form__note{ margin-top: 4px; }
 
-/* Bigger, pulsing CTA in contact */
+/* Contact CTA emphasis */
 .contact .btn--brand{
   padding: 18px 36px;
   font-size: 1.15rem;
@@ -553,7 +590,7 @@ body{
 }
 .contact .btn--brand:hover{ transform: none; }
 
-/* Success submission animations */
+/* Success submission transitions */
 .form__actions .btn{ transition: transform .28s ease, opacity .28s ease, filter .28s ease; }
 .form__actions .btn.is-hidden{ opacity: 0; transform: scale(.9); pointer-events: none; filter: blur(0.3px); }
 
